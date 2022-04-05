@@ -62,4 +62,12 @@ p{
 
 legend{
     color: goldenrod;
+    margin-bottom: 0px;
+}
+
+#subText{
+    font-weight: lighter; 
+    font-size: small; 
+    font-style: italic;
+    margin-bottom: 20px;
 }

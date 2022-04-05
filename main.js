@@ -37,7 +37,7 @@ weatherForm.on('submit', function(event){
             console.log(data.temperature);
             let temp = convertCelsiusToFahrenheit(data.temperature);
             let wind = convertKphToMph(data.wind);
-            let weatherDesc = $(`<p class="card-text">Today's weather in ${city} is ${temp} °F, ${data.description.toLowerCase()}, with ${wind.toFixed()} mph winds.</p>`);
+            let weatherDesc = $(`<p class="card-text">Today's weather in ${city} is ${temp.toFixed()} °F, ${data.description.toLowerCase()}, with ${wind.toFixed()} mph winds.</p>`);
             weatherCard.append(weatherDesc);
         }
     )
