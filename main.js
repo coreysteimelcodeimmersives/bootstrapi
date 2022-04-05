@@ -1,0 +1,1 @@
+let dogImg = 'dogImg'
