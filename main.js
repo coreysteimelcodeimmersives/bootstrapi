@@ -1,10 +1,8 @@
 // Use jQuery to declare DOMs
 let newDogButton = $('#newDogButton');
 let dogImg = $('#dogImg');
-// let body = $('body');
-// let header = $('<div></div>');
-// body.append(header);
-// header.text('HELLO');
+let weatherForm = $('form');
+let cityInput = $('#cityInput');
 
 
 // use eventlistener 
@@ -16,10 +14,23 @@ newDogButton.on('click', function(){
         }
     ).then(
         function(data){
-            console.log(data.message)
             dogImg.attr("src", data.message);
         }
     );
 });
+
+weatherForm.on('submit', function(){
+    console.log(cityInput.val());
+    alert(cityInput.val())
+    // fetch(`https://goweather.herokuapp.com/weather/${cityInput.val()}`).then(
+    //     function(httpRes){
+    //         return httpRes.json();
+    //     }
+    // ).then(
+    //     function(data){
+    //         console.log(data.message);
+    //     }
+    // )
+})
 
 
