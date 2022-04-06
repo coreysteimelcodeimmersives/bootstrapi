@@ -30,15 +30,23 @@ weatherForm.on('submit', function(event){
     weatherCard.append(weatherTitle)  
     fetch(`https://goweather.herokuapp.com/weather/${city}`).then(
         function(httpRes){
+            if (httpRes.status !== 200){
+                alert(`The weather for ${city} is not available. Please try a differnt city.`);
+            }
             return httpRes.json();
         }
     ).then(
         function(data){
-            console.log(data.temperature);
-            let temp = convertCelsiusToFahrenheit(data.temperature);
-            let wind = convertKphToMph(data.wind);
-            let weatherDesc = $(`<p class="card-text">Today's weather in ${city} is ${temp.toFixed()} °F, ${data.description.toLowerCase()}, with ${wind.toFixed()} mph winds.</p>`);
-            weatherCard.append(weatherDesc);
+            console.log(data);
+            if (data.message === 'NOT_FOUND' || data.temperature === ''){
+                let weatherDesc = $(`<p class="card-text">Not available. Please try a differnt city.</p>`);
+                weatherCard.append(weatherDesc);
+            } else {
+                let temp = convertCelsiusToFahrenheit(data.temperature);
+                let wind = convertKphToMph(data.wind);
+                let weatherDesc = $(`<p class="card-text">Today's weather in ${city} is ${temp.toFixed()} °F, ${data.description.toLowerCase()}, with ${wind.toFixed()} mph winds.</p>`);
+                weatherCard.append(weatherDesc);
+            }
         }
     )
     cityInput.val('');
