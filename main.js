@@ -6,9 +6,6 @@ let cityInput = $('#cityInput');
 let weatherContent = $('#weather-content');
 let weatherCard = $('<div class="card-body weatherCard"></div>').css('margin-top', '20px', 'margin-bottom', '20px');
 let weatherTable = $(`table`);
-// let thead = $('thead');
-// let tr = $('tr');
-// let caption = $('<caption>3-Day Forecast</caption>')
 let thead = $(`<caption>3-Day Forecast</caption><thead><tr>
   <th scope="col"></th>
   <th scope="col"></th>
